@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maaf, Putri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbeef1; --bg2:#efe3f5; --ink:#4a2740; --soft:#7b5a73; --rose:#d4859d; --card:rgba(255,255,255,.62); --line:rgba(74,39,64,.14);
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#25142a; --bg2:#3a1f3f; --ink:#f8e6ee; --soft:#c9a7bd; --rose:#e79bb2; --card:rgba(255,255,255,.07); --line:rgba(248,230,238,.16); color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#25142a; --bg2:#3a1f3f; --ink:#f8e6ee; --soft:#c9a7bd; --rose:#e79bb2; --card:rgba(255,255,255,.07); --line:rgba(248,230,238,.16); color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:linear-gradient(170deg,var(--bg) 0%,var(--bg2) 100%) fixed;color:var(--ink);font-family:"Quicksand",system-ui,sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:0}
+main{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:0 24px}
+section{min-height:92vh;display:flex;flex-direction:column;justify-content:center}
+.hero{text-align:center;align-items:center;gap:18px;animation:rise 1.6s ease both}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(3.4rem,15vw,6rem);line-height:1;letter-spacing:-.01em}
+.sub{color:var(--soft);font-size:1.02rem;max-width:30ch}
+.scroll{margin-top:28px;width:1px;height:56px;background:linear-gradient(var(--rose),transparent)}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;font-size:1.9rem;margin-bottom:18px}
+.letter{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:34px 28px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.letter p{margin-bottom:14px}
+.letter p:last-child{margin-bottom:0}
+.sign{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.4rem;color:var(--rose);margin-top:22px}
+.promises{list-style:none;padding:0}
+.promises li{padding:16px 0 16px 34px;border-bottom:1px solid var(--line);position:relative}
+.promises li::before{content:"♡";position:absolute;left:4px;top:15px;color:var(--rose)}
+.ask{text-align:center;align-items:center;gap:26px}
+.ask h2{font-size:2.3rem;margin:0}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;min-height:54px}
+button{font:inherit;font-weight:600;border:0;border-radius:999px;padding:14px 30px;cursor:pointer;transition:transform .2s}
+.yes{background:var(--rose);color:#3a1530}
+.yes:hover{transform:scale(1.06)}
+.no{background:transparent;color:var(--soft);border:1px solid var(--line)}
+button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.thanks{display:none;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.7rem;line-height:1.4}
+.thanks small{display:block;font-family:"Quicksand",sans-serif;font-style:normal;font-size:.95rem;color:var(--soft);margin-top:10px}
+.done .btns,.done .q{display:none}
+.done .thanks{display:block;animation:rise 1.2s ease both}
+.heart{position:fixed;bottom:-30px;z-index:5;pointer-events:none;color:var(--rose);animation:float 3.6s ease-in forwards}
+footer{text-align:center;color:var(--soft);font-size:.85rem;padding:30px 0 50px}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes float{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.hero,.done .thanks{animation:none}.heart{animation-duration:.01s}}
+</style>
+</head>
+<body>
+<canvas id="petals" aria-hidden="true"></canvas>
+<main>
+  <section class="hero">
+    <h1>Maaf,<br>Putri.</h1>
+    <p class="sub">Untuk Putri Isnaini, yang paling ingin aku jaga perasaannya.</p>
+    <div class="scroll" aria-hidden="true"></div>
+  </section>
+
+  <section>
+    <h2>Sebuah surat kecil</h2>
+    <div class="letter">
+      <p>Cayanggg, aku minta maaf kalau aku sering buat kamu capek apalagi di saat seperti sekarang yang dimana kamu sudh cape seharian nyiapin kadoku.</p>
+      <p>Aku gk pernah mauu ini. aku sangat pengen sekali inisiatif tapi tadi aku salah, aku tidak siap2 untuk di telp cayang dengan memberi tahu kalau audionya belum siap</p>
+      <p>Makasih sayang harini sudah siapin kadoku yang sangat aku nantikan kesampaiannya, makasih udah mau capek2 untukku baby.</p>
+      <div class="sign">dari aku, yang sayang kamu yang menunggumu malam ini untuk mengobrol karena kangen</div>
+    </div>
+  </section>
+
+  <section class="ask" id="ask">
+    <h2 class="q">Sayangg, maafin aku?</h2>
+    <div class="btns" id="btns">
+      <button class="yes" id="yes">Iya, aku maafin</button>
+      <button class="no" id="no">Belum dulu</button>
+    </div>
+    <div class="thanks">Terima kasih, Putri cayang.<small>Aku sayang kamu.</small></div>
+  </section>
+  <footer>dibuat dengan sepenuh hati</footer>
+</main>
+
+<script>
+(function(){
+  // kelopak yang jatuh pelan
+  var c=document.getElementById('petals'),x=c.getContext('2d'),W,H,P=[];
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){W=c.width=innerWidth;H=c.height=innerHeight}
+  size();addEventListener('resize',size);
+  for(var i=0;i<18;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:4+Math.random()*6,s:.25+Math.random()*.45,d:Math.random()*6,a:.25+Math.random()*.35});
+  function draw(){
+    x.clearRect(0,0,W,H);
+    P.forEach(function(p){
+      p.y+=p.s;p.d+=.012;p.x+=Math.sin(p.d)*.35;
+      if(p.y>H+10){p.y=-10;p.x=Math.random()*W}
+      x.save();x.translate(p.x,p.y);x.rotate(p.d);x.globalAlpha=p.a;x.fillStyle='#e48ea8';
+      x.beginPath();x.ellipse(0,0,p.r,p.r*.55,0,0,Math.PI*2);x.fill();x.restore();
+    });
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  draw();
+
+  // tombol "Belum dulu" menghindar
+  var no=document.getElementById('no'),moved=false;
+  function dodge(e){
+    if(e&&e.preventDefault)e.preventDefault();
+    if(!moved){moved=true;no.style.position='fixed'}
+    var w=no.offsetWidth,h=no.offsetHeight;
+    no.style.left=Math.max(12,Math.random()*(innerWidth-w-24))+'px';
+    no.style.top=Math.max(12,Math.random()*(innerHeight-h-24))+'px';
+  }
+  no.addEventListener('mouseenter',dodge);
+  no.addEventListener('touchstart',dodge,{passive:false});
+  no.addEventListener('click',dodge);
+
+  // tombol "Iya"
+  document.getElementById('yes').addEventListener('click',function(){
+    document.getElementById('ask').classList.add('done');
+    no.style.display='none';
+    for(var i=0;i<28;i++){
+      (function(i){setTimeout(function(){
+        var h=document.createElement('div');h.className='heart';h.textContent='♥';
+        h.style.left=Math.random()*100+'vw';h.style.fontSize=(16+Math.random()*26)+'px';
+        document.body.appendChild(h);setTimeout(function(){h.remove()},3800);
+      },i*90)})(i);
+    }
+  });
+})();
+</script>
+</body>
+</html>
